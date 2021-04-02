@@ -1,0 +1,29 @@
+[
+  {
+    "minWeight": 50,
+    "ppkg": {
+      "BALIKPAPAN": 4000,
+      "BANJARMASIN": 4000,
+      "MAKASSAR": 4000,
+      "SAMARINDA": 5000,
+      "MANADO": 6000
+    }
+  },
+  {
+    "minWeight": 80,
+    "ppkg": {
+      "JAYAPURA": 8500,
+      "SORONG": 8500,
+      "TIMIKA": 11000
+    }
+  },
+  {
+    "minWeight": 100,
+    "ppkg": {
+      "KUPANG": 5000,
+      "PONTIANAK": 5000,
+      "KENDARI": 7000,
+      "TERNATE": 7000
+    }
+  }
+]
