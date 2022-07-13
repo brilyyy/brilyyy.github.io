@@ -14,7 +14,7 @@ const ProjectCard = ({
   url,
 }: ProjectCardProps) => {
   return (
-    <div className="flex flex-col items-center gap-x-8 rounded-md bg-slate-700 p-3 md:flex-row">
+    <div className="flex flex-col items-center gap-x-8 rounded-md bg-zinc-600 p-3 md:flex-row">
       <div className="shrink-0">
         <div className="w-36 h-36 flex items-center">
           <img
@@ -34,7 +34,7 @@ const ProjectCard = ({
           >
             <div className="text-xl font-semibold">{name}</div>
           </a>
-          <div className="ml-3 flex gap-2">
+          <div className="ml-3 flex flex-col w-full sm:w-auto sm:flex-row gap-2">
             {technologies.map((technology, index) => (
               <div
                 key={index}
