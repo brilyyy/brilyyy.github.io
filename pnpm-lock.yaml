@@ -5,7 +5,7 @@ specifiers:
   '@astrojs/tailwind': ^0.2.4
   '@types/react': ^18.0.15
   '@types/react-dom': ^18.0.6
-  astro: ^1.0.0-beta.69
+  astro: 1.0.0-beta.69
   prettier: ^2.7.1
   prettier-plugin-astro: ^0.1.1
   react: ^18.0.0
