@@ -35,7 +35,7 @@ const data: Array<Project> = [
   {
     name: "Smart Information UNS",
     technologies: ["laravel", "blade", "php", "mysql", "bootstrap"],
-    image: "https://uns.ac.id/id/wp-content/uploads/Logo-UNS-New-04.png",
+    image: "https://smartin.uns.ac.id/assets/foxia/images/logo.png",
     url: "https://smartin.uns.ac.id/",
     description:
       "an application for collecting all university data in number. it is a web application that can be used by the civital staff.",
