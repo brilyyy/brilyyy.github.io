@@ -1,0 +1,56 @@
+---
+import Footer from "components/Footer.astro";
+import GithubCorner from "components/GithubCorner.astro";
+import Navbar from "components/Navbar.astro";
+function formatDate(date) {
+  return new Date(date).toUTCString().replace(/(\d\d\d\d) .*/, "$1"); // remove everything after YYYY
+}
+const { content } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/x-icon" href="https://brilyyy.github.io/favicon.ico" />
+  <title>{content.title} | 👋🏼</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css"
+    integrity="sha512-KUoB3bZ1XRBYj1QcH4BHCQjurAZnCO3WdrswyLDtp7BMwCw7dPZngSLqILf68SGgvnWHTD5pPaYrXi6wiRJ65g=="
+    crossorigin="anonymous" />
+  <style scoped>
+    .markdown-body {
+      background-color: rgb(24, 24, 27);
+      font-family: "Fira Mono", monospace;
+    }
+  </style>
+</head>
+
+<body class=" bg-zinc-900 text-neutral-200 font-mono">
+  <GithubCorner />
+  <Navbar />
+  <div class="mx-auto max-w-screen-lg px-3 py-6">
+    <div class="text-center mb-5">
+      <h1 class="font-bold text-3xl mb-2">
+        {content.title}
+      </h1>
+      <h3 class=" text-neutral-500 mb-3">
+        created by {content.author} on {formatDate(content.date)}
+      </h3>
+      <hr />
+    </div>
+    <img class="w-full mb-10" src={content.image_url} alt="" />
+    <article class="markdown-body">
+      <slot></slot>
+    </article>
+  </div>
+  <Footer />
+</body>
+
+</html>

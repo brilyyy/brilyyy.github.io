@@ -1,8 +1,13 @@
 ---
+import PostCard from "components/PostCard.astro";
 import Layout from "layouts/Layout.astro";
-import BlogCard from 'components/BlogCard'
+const posts = await Astro.glob("./post/*.md");
 ---
 
 <Layout title="blog">
-  <BlogCard client:visible />
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+    {posts.map((post) => (
+    <PostCard {post} />
+    ))}
+  </div>
 </Layout>
