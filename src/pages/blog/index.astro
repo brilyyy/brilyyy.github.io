@@ -1,7 +1,8 @@
 ---
-import { Markdown } from 'astro/components'
+import Layout from "layouts/Layout.astro";
+import BlogCard from 'components/BlogCard'
 ---
 
-<Markdown>
-  # Hello, world!
-</Markdown>
+<Layout title="blog">
+  <BlogCard client:visible />
+</Layout>

@@ -1,0 +1,42 @@
+---
+import { Markdown } from 'astro/components'
+import Layout from 'layouts/Layout.astro';
+export async function getStaticPaths() {
+  const data = await fetch('https://brilyyy.kangrosdi.com/api/posts').then(res => res.json());
+
+  return data.map(post => ({
+    params: {
+      slug: post.slug,
+    },
+    props: { post }
+  }));
+}
+const { slug } = Astro.params
+const { post } = Astro.props
+---
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css"
+  integrity="sha512-KUoB3bZ1XRBYj1QcH4BHCQjurAZnCO3WdrswyLDtp7BMwCw7dPZngSLqILf68SGgvnWHTD5pPaYrXi6wiRJ65g=="
+  crossorigin="anonymous" />
+<style scoped>
+  .markdown-body {
+    background-color: rgb(24, 24, 27);
+    font-family: 'Fira Mono', monospace;
+  }
+</style>
+
+<Layout title={post.title}>
+  <div class="text-center mb-5">
+    <h1 class="font-bold text-3xl mb-2">
+      {post.title}
+    </h1>
+    <h3 class=" text-neutral-500 mb-3">
+      By Brilyan
+    </h3>
+    <hr>
+  </div>
+  <img class="w-full mb-10" src={post.image_url} alt="">
+  <div class="markdown-body">
+    <Markdown content={post.content} />
+  </div>
+</Layout>
