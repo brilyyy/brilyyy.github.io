@@ -31,7 +31,7 @@ const LatestPost = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        {blog?.slice(-3).map((post) => (
+        {blog?.slice(3).map((post) => (
           <BlogPost key={post.id} post={post} />
         ))}
       </div>
