@@ -1,4 +1,6 @@
 import ProjectCard from "./ProjectCard";
+import type { FunctionalComponent } from "preact";
+import { h } from "preact";
 
 interface Project {
   name: string;
@@ -42,7 +44,7 @@ const data: Array<Project> = [
   },
 ];
 
-const Projects = () => {
+const Projects: FunctionalComponent = () => {
   return (
     <div className="flex flex-col gap-6">
       {data.map((project, i) => (

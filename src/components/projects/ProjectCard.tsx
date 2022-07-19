@@ -1,3 +1,6 @@
+import type { FunctionalComponent } from "preact";
+import { h } from "preact";
+
 interface ProjectCardProps {
   name: string;
   technologies: Array<string>;
@@ -6,13 +9,13 @@ interface ProjectCardProps {
   url: string;
 }
 
-const ProjectCard = ({
+const ProjectCard: FunctionalComponent<ProjectCardProps> = ({
   name,
   technologies,
   image,
   description,
   url,
-}: ProjectCardProps) => {
+}) => {
   return (
     <div className="flex flex-col items-center gap-x-8 rounded-md bg-zinc-600 p-3 md:flex-row">
       <div className="shrink-0">
