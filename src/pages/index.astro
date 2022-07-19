@@ -2,6 +2,8 @@
 import Layout from "layouts/Layout.astro";
 import Projects from "components/projects/Projects";
 import PostCard from "components/PostCard.astro";
+import { parse } from 'node-html-parser'
+
 const posts = await Astro.glob("./blog/post/*.md");
 ---
 
@@ -43,39 +45,41 @@ const posts = await Astro.glob("./blog/post/*.md");
   </div>
   <div class="mx-auto max-w-screen-lg px-3 py-6">
     <div class="mb-6 text-2xl font-bold">
-      Recent <span class="bg-gradient-to-br from-teal-500 to-emerald-400 bg-clip-text text-transparent">Projects
+      recent <span class="bg-gradient-to-br from-teal-500 to-emerald-400 bg-clip-text text-transparent">projects
       </span>
     </div>
     <Projects client:visible />
   </div>
-  <!-- <div class="mx-auto max-w-screen-lg px-3 py-6">
-		<div class="mb-6 text-2xl font-bold">Contact <span
-				class="bg-gradient-to-br from-teal-500 to-emerald-400 bg-clip-text text-transparent">Me</span>
-		</div>
-		<div class="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
-			<a href="mailto:619mistico@gmail.com">Mail</a>
-		</div>
-	</div> -->
+  <div class="mx-auto max-w-screen-lg px-3 py-6">
+    <div class="mb-6 text-2xl font-bold">contact <span
+        class="bg-gradient-to-br from-teal-500 to-emerald-400 bg-clip-text text-transparent">me</span>
+    </div>
+    <div class="flex flex-col items-center md:flex-row md:justify-between md:gap-x-24">
+      <a class=" hover:animate-pulse hover:text-blue-400" href="mailto:619mistico@gmail.com">mail</a>
+    </div>
+  </div>
   <div class="mx-auto max-w-screen-lg px-3 py-6">
     <div class="mb-6 text-2xl font-bold">
       <div class="flex items-baseline justify-between">
         <div>
-          Recent{" "}
+          recent{" "}
           <span class="bg-gradient-to-br from-teal-500 to-emerald-400 bg-clip-text text-transparent">
-            Posts
+            posts
           </span>
         </div>
         <div class="text-sm">
-          <a href="/blog">View all Posts →</a>
+          <a href="/blog">view all posts →</a>
         </div>
       </div>
     </div>
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-      {
-      posts.slice(-3).map(post => (
-      <PostCard {post} />
-      ))
-      }
+      {posts.slice(-3).map( async (post) => {
+      const firstParagraph = parse(await post.compiledContent())
+      .querySelector('p:first-of-type').innerText.slice(0,100)
+      return (
+      <PostCard {post} {firstParagraph} />
+      )
+      })}
     </div>
   </div>
 </Layout>

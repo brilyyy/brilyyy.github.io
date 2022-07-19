@@ -1,6 +1,6 @@
 {
-  "name": "@example/basics",
-  "version": "0.0.1",
+  "name": "brilyyy-portfolio",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -13,14 +13,13 @@
     "@astrojs/tailwind": "^0.2.4",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "astro": "^1.0.0-beta.71",
+    "astro": "^1.0.0-beta.73",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.1.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "astro-imagetools": "^0.6.10",
-    "markdown-to-text": "^0.1.1"
+    "node-html-parser": "^5.3.3"
   }
 }

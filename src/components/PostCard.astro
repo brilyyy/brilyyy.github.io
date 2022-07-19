@@ -2,13 +2,13 @@
 function formatDate(date) {
   return new Date(date).toUTCString().replace(/(\d\d\d\d) .*/, "$1"); // remove everything after YYYY
 }
-const { post } = Astro.props;
+const { post, firstParagraph } = Astro.props;
 ---
 
 <a class="hover:translate-y-1" href={post.url}>
   <div class="overflow-hidden rounded-md bg-zinc-600">
     <div class="aspect-w-3 aspect-h-2">
-      <img class=" h-52 w-full object-cover object-center" src={post.frontmatter.image_url} alt="Image post"
+      <img class=" h-52 w-full object-cover object-center" src={post.frontmatter.image} alt="Image post"
         loading="lazy" />
     </div>
     <div class="px-3 pt-4 pb-6 text-center">
@@ -16,8 +16,8 @@ const { post } = Astro.props;
         {post.frontmatter.title}
       </h2>
       <div class="mt-1 text-xs text-gray-400">{formatDate(post.frontmatter.date)}</div>
-      <div class="mt-2 text-sm underline underline-offset-2">
-        read more...
+      <div class="mt-2 text-sm  text-justify">
+        {firstParagraph} <span class="underline underline-offset-2">read more...</span>
       </div>
     </div>
   </div>

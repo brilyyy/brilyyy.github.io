@@ -1,4 +1,5 @@
 ---
+import { parse } from 'node-html-parser'
 import PostCard from "components/PostCard.astro";
 import Layout from "layouts/Layout.astro";
 const posts = await Astro.glob("./post/*.md");
@@ -6,8 +7,12 @@ const posts = await Astro.glob("./post/*.md");
 
 <Layout title="blog">
   <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-    {posts.map((post) => (
-    <PostCard {post} />
-    ))}
+    {posts.map( async (post) => {
+    const firstParagraph = parse(await post.compiledContent())
+    .querySelector('p:first-of-type').innerText.slice(0,100)
+    return (
+    <PostCard {post} {firstParagraph} />
+    )
+    })}
   </div>
 </Layout>

@@ -1,9 +1,11 @@
 ---
-layout: '../../../layouts/PostLayout.astro'
+layout: 'layouts/PostLayout.astro'
 title: What is Astro that i use to build this page?
 author: Brilyan
-image_url: https://miro.medium.com/max/1400/1*9M69JTd6k31rJOZ2Ih8Uuw.png
+image: https://miro.medium.com/max/1400/1*9M69JTd6k31rJOZ2Ih8Uuw.png
 date: 2022-07-15
+draft: false
+description: I share to everyone what is technology named Astro that i use to build this page.
 ---
 
 # Astro - The SSG Framework for Building Website

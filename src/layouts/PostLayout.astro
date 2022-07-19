@@ -14,8 +14,24 @@ const { content } = Astro.props;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
+  <meta name={content.title} content={content.description}>
+  <meta name="description" content={content.description}>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brilyyy.github.io">
+  <meta property="og:title" content={content.description}>
+  <meta property="og:description" content={content.description}>
+  <meta property="og:image" content={content.image}>
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://brilyyy.github.io">
+  <meta property="twitter:title" content={content.description}>
+  <meta property="twitter:description" content={content.description}>
+  <meta property="twitter:image" content={content.image}>
   <link rel="icon" type="image/x-icon" href="https://brilyyy.github.io/favicon.ico" />
-  <title>{content.title} | 👋🏼</title>
+  <title>{content.title} | brilyan.dev</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -45,7 +61,7 @@ const { content } = Astro.props;
       </h3>
       <hr />
     </div>
-    <img class="w-full mb-10" src={content.image_url} alt="" />
+    <img class="w-full mb-10 rounded-md" src={content.image} alt="" />
     <article class="markdown-body">
       <slot></slot>
     </article>

@@ -12,7 +12,7 @@ const data: Array<Project> = [
   {
     name: "Wiyata Academy",
     technologies: ["react", "typescript", "bootstrap", "react-query"],
-    image: "https://wiyata.id/img/logo.svg",
+    image: "/img/projects/wiyata.png",
     url: "https://wiyata.id",
     description:
       "a online learning platform for everyone. learn from the best teachers in the world.",
@@ -27,7 +27,7 @@ const data: Array<Project> = [
       "inertia-js",
       "php",
     ],
-    image: "https://uns.ac.id/id/wp-content/uploads/Logo-UNS-New-04.png",
+    image: "/img/projects/uns.png",
     url: "https://greenmetric.uns.ac.id/",
     description:
       "an application for surveying the environment of UNS. it is a web application that can be used by the civital staff.",
@@ -35,7 +35,7 @@ const data: Array<Project> = [
   {
     name: "Smart Information UNS",
     technologies: ["laravel", "blade", "php", "mysql", "bootstrap"],
-    image: "https://smartin.uns.ac.id/assets/foxia/images/logo.png",
+    image: "/img/projects/smartin.png",
     url: "https://smartin.uns.ac.id/",
     description:
       "an application for collecting all university data in number. it is a web application that can be used by the civital staff.",

@@ -9,4 +9,7 @@ export default defineConfig({
   experimental: {
     integrations: true,
   },
+  markdown: {
+    drafts: true,
+  },
 });
