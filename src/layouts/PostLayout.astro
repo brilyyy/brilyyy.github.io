@@ -1,6 +1,7 @@
 ---
 import Footer from "components/Footer.astro";
 import GithubCorner from "components/GithubCorner.astro";
+import { Image } from "@astrojs/image/components";
 import Navbar from "components/Navbar.astro";
 function formatDate(date) {
   return new Date(date).toUTCString().replace(/(\d\d\d\d) .*/, "$1"); // remove everything after YYYY
@@ -61,7 +62,7 @@ const { content } = Astro.props;
       </h3>
       <hr />
     </div>
-    <img class="w-full mb-10 rounded-md" src={content.image} alt="" />
+    <img width={1280} height={720} class="w-full mb-10 rounded-md" src={content.image} alt="" />
     <article class="markdown-body">
       <slot></slot>
     </article>
