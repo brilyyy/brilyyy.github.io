@@ -7,7 +7,9 @@ const posts = await Astro.glob("./post/*.md");
 
 <Layout title="blog">
   <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-    {posts.map( async (post) => {
+    {posts.filter(async (post) => {
+      return !post.frontmatter.draft
+    }).map( async (post) => {
     const firstParagraph = parse(await post.compiledContent())
     .querySelector('p:first-of-type').innerText.slice(0,100)
     return (
