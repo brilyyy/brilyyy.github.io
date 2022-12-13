@@ -13,6 +13,7 @@ const posts = await Astro.glob("./post/*.md");
     const firstParagraph = parse(await post.compiledContent())
     .querySelector('p:first-of-type').innerText.slice(0,100)
     return (
+      //@ts-ignore
     <PostCard {post} {firstParagraph} />
     )
     })}
